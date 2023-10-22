@@ -1,0 +1,30 @@
+{
+  "name": "rest-npm-stateful",
+  "version": "1.0.0",
+  "description": "The versioning which involves a stateful node backend that keeps tab of user session info",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhiChakra/REST-stateless.git"
+  },
+  "keywords": [
+    "rest",
+    "node"
+  ],
+  "author": "abhichakra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhiChakra/REST-stateless/issues"
+  },
+  "homepage": "https://github.com/abhiChakra/REST-stateless#readme",
+  "dependencies": {
+    "connect-redis": "^7.1.0",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "redis": "^4.6.10"
+  }
+}
