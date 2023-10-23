@@ -4,7 +4,7 @@ import session from "express-session";
 import { createClient } from "redis";
 import animals from "./animals.js";
 
-const MAX_ANIMALS = 42;
+const MAX_ANIMALS = animals.length;
 
 // Example referenced from connect-redis npm pacakge page
 // [https://www.npmjs.com/package/connect-redis?activeTab=readme]
