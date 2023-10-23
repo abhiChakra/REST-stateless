@@ -1,0 +1,23 @@
+{
+  "name": "stateless_rest_express_endpoint",
+  "version": "1.0.0",
+  "description": "a very basic express node api endpoint reflecting deciphering of url query params",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhiChakra/REST-stateless.git"
+  },
+  "author": "abhichakra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhiChakra/REST-stateless/issues"
+  },
+  "homepage": "https://github.com/abhiChakra/REST-stateless#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
