@@ -41,7 +41,7 @@ app.get("/animals", (req, res) => {
   // to the beginning of the array.
   const animalNames = animals.slice(index, endIndex);
   req.session.index = endIndex >= MAX_ANIMALS ? 0 : endIndex;
-  res.json({ animals: animalNames, starting_index: index });
+  res.status(200).json({ animals: animalNames, starting_index: index });
 });
 
 
