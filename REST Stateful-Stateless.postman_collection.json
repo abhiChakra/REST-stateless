@@ -1,0 +1,55 @@
+{
+	"item": [
+		{
+			"name": "Animals Stateful",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/stateful/animals",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"stateful",
+						"animals"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Animals Stateless",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/stateless/animals?animalIndex=0",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"stateless",
+						"animals"
+					],
+					"query": [
+						{
+							"key": "animalIndex",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
