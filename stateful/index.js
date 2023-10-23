@@ -4,6 +4,10 @@ import session from "express-session";
 import { createClient } from "redis";
 import animals from "./animals.js";
 
+const MAX_ANIMALS = 42;
+
+// Example referenced from connect-redis npm pacakge page
+// [https://www.npmjs.com/package/connect-redis?activeTab=readme]
 // Initialize client.
 let redisClient = createClient();
 redisClient.connect().catch(console.error);
@@ -26,12 +30,17 @@ app.use(
   })
 );
 
+// Endpoint defining a route that returns a list of 5 unique animal names.
 app.get("/animals", (req, res) => {
   let index = req.session.index || 0;
-  const endIndex = index + 5;
+  const endIndex = index + 5 > MAX_ANIMALS ? MAX_ANIMALS : index + 5;
+
+  // Slice the array of animals to return a list of 5 unique animal names.
+  // If the end index is greater than the length of the array, wrap around
+  // to the beginning of the array.
   const animalNames = animals.slice(index, endIndex);
-  req.session.index = endIndex;
-  res.json({"animals" : animalNames, "starting_index" : index});
+  req.session.index = endIndex >= MAX_ANIMALS ? 0 : endIndex;
+  res.json({ animals: animalNames, starting_index: index });
 });
 
 app.listen(3000, () => {
