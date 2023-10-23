@@ -32,6 +32,7 @@ app.use(
 
 // Endpoint defining a route that returns a list of 5 unique animal names.
 app.get("/animals", (req, res) => {
+  console.log(`GET animals request hit on port ${process.env.PORT}`);
   let index = req.session.index || 0;
   const endIndex = index + 5 > MAX_ANIMALS ? MAX_ANIMALS : index + 5;
 
