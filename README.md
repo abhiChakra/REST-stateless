@@ -26,3 +26,15 @@ As seen in the diagram, for my implementation, I leveraged [Postman](https://www
 In this implementation, the client itself (say a simple react app) will handle the current `index` state on the client side (i.e. the frontend)! It will then pass this information to the server via url query params, which the server will then utilize to guide its response. 
 Here’s the HTTP endpoint layout for this request: `/fetchAnimals/?index=5`
 As the client will handle the state, the servers are free to be multiplied for horizontal scaling without any fear about state sync.
+
+
+## Overall System Setup:
+![1626F4C3-F2A7-4699-A465-098EC4A603B5](https://github.com/abhiChakra/REST-stateless-stateful/assets/42390963/b1afea2b-35b5-4747-8030-81d8e01cd000)
+
+To demo a model of the entire system put together, I leveraged Nginx (How to set up on Mac) as a loadbalancer and proxy, listening on port 8081. My Postman scripts only communicated with this Nginx server.
+
+I spun up two instances of the stateful Express app (on two different ports), and two instances of the stateless express app (on two different ports). I then guided HTTP get requests from Postman, such that `/stateful/animals requests` were guided to either of the stateful express app ports, with one being weighted more than the other (weighted loadbalancing), and exactly similarly for the `/stateless/animals/animalIndex=X` requests to the stateless express app ports.
+
+Checkout the quick video explanation of this setup! - https://youtu.be/YGftSKjOByc
+
+
